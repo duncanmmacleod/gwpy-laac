@@ -14,7 +14,8 @@ __currentmodule__ = 'gwpy.segments'
 # First, import the `DataQualityFlag` object
 from gwpy.segments import DataQualityFlag
 
-# Then call the `~DataQualityFlag.query_dqsegdb` `classmethod` to query
+# Then call the `DataQualityFlag.query_dqsegdb()
+# <gwpy.segments.DataQualityFlag.query_dqsegdb>` `classmethod` to query
 # for a specific flag between a start time and an end time (UTC date strings
 # get converted to GPS internally):
 intent = DataQualityFlag.query_dqsegdb(

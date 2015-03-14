@@ -23,8 +23,8 @@ os.system(
     '201503/20150304/latest/'
     'L1-HVETO_WINNERS_TRIGS_ROUND_1-1109462416-86400.txt .')
 
-# Now we can read these using the :meth:`SnglBurstTable.read
-# <gwpy.table.lsctables.SnglBurstTable.read` method:
+# Now we can read these using the :meth:`SnglBurstTable.read()
+# <gwpy.table.lsctables.SnglBurstTable.read>` method:
 
 from gwpy.table.lsctables import SnglBurstTable
 triggers = SnglBurstTable.read(

@@ -7,24 +7,23 @@
 In this example we show how to de-whiten the L1 DARM channel to produce an
 ASD in GW strain units.
 
-
 .. note::
 
    This example will only reliably work when using `scipy` >= 0.16, which
    at the time of writing is only available by installing `scipy` directly
-   from its git repository::
+   from its git repository:
 
-   .. clode-block:: bash
+   .. code-block:: bash
 
       pip install --user git+https://github.com/scipy/scipy
-"""
 
-from gwpy.timeseries import TimeSeries
+"""
 
 __author__ = "Duncan Macleod <duncan.macleod@ligo.org>"
 __currentmodule__ = 'gwpy.timeseries'
 
 # First, we fetched the whitened data for 30 minutes of a recent lock stretch:
+from gwpy.timeseries import TimeSeries
 white = TimeSeries.fetch(
     'L1:OAF-CAL_DARM_DQ', 'March 2 2015 12:00', 'March 2 2015 12:30')
 # then we `de-whiten <TimeSeries.zpk>` the data using the inverse of
