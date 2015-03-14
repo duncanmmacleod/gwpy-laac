@@ -1,0 +1,49 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+Portfile
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Sphinx documentation
+/docs/_build
+/docs/_generated
+/docs/lalsuite_dox.tag
+
+# Version information
+/gwpy/version.py
+
+# OS/editor files
+*.swp
+.DS_Store
+.idea
+
+# Examples output
+/examples/*.png
+/examples/*/*.png
+/docs/examples/*/*
+
+# Patches
+/*.patch
