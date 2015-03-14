@@ -177,4 +177,5 @@ pseudoxml:
 examples: $(addprefix examples/,$(EXAMPLES:py=rst))
 
 examples/%.rst: ex2rst.py ../examples/%.py
+	@mkdir -p examples/
 	python ex2rst.py ../examples/$*.py $@
