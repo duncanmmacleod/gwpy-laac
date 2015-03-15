@@ -84,8 +84,12 @@ for i,line in enumerate(lines):
 
     # find plots
 
+    # insert directive
+    if re.match('\w+\.show()', line):
+        output.append('\n.. plot:: %s\n' % args.infile)
+        continue
     # comments
-    if line.startswith('# '):
+    if line == '#' or line.startswith('# '):
         output.append(line[2:])
     # metadata
     elif line.startswith('__'):
@@ -100,7 +104,9 @@ for i,line in enumerate(lines):
     else:
         if not incode:
             output.append('')
-        if line.startswith('#'):
+        if line == '#':
+            output.append('')
+        elif line.startswith('#'):
             output.append('    %s' % line.strip('#'))
         else:
             output.append('    >>> %s' % line)
@@ -114,7 +120,6 @@ for i,line in enumerate(lines):
     if len(output) == 1:
         output.append('#'*len(output[0]))
 
-output.append('\n.. plot:: %s\n' % args.infile)
 output = header + output
 
 if args.outfile:
