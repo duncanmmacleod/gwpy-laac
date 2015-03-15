@@ -29,11 +29,12 @@ locksegs = DataQualityFlag.query_dqsegdb(
 # method to find and read Omicron triggers (and ExcessPower triggers) in a
 # single step.
 # Here we read the `L1:OAF-CAL_DARM_DQ` triggers (L1 GW readout), for the
-# day of March 2:
+# day of March 2, using the `filt` keyword argument to filter out those 
+# triggers in one of the lock segments:
 
 from gwpy.table.lsctables import SnglBurstTable
 triggers = SnglBurstTable.fetch(
-    'L1:OAF-CAL_DARM_DQ', 'omicron', 'March 2', 'March 3',
+    'L1:OAF-CAL_DARM_DQ', 'omicron', 'March 2 2015', 'March 3 2015',
     filt=lambda t: float(t.get_peak()) in locksegs.active)
 
 # Then we can plot the triggers
