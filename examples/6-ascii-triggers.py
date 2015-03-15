@@ -5,7 +5,7 @@
 """How to read triggers from ASCII files
 
 The most used library for trigger manipulations in LIGO is the `glue.ligolw`
-library, written by Kipp Cannon.
+library.
 This requires that the input data are stored in `LIGO_LW` XML files.
 In this example we demonstrate how to read columnar data from ASCII (`txt`)
 files into the same objects we use for `LIGO_LW` XML data.
