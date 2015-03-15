@@ -50,8 +50,8 @@ plot.show()
 # - enter `L1:OAF-CAL_DARM_DQ` in the 'Channel name filter' box
 # - select the 'Raw' check-box under the `L1:OAF-CAL_DARM_DQ` entry in
 #   the returned table, the press 'Continue'
-# - set the start time to `1109138540`, and the duration to `10`
-# - Click the 'Spectrogram' plot option and select the
+# - set the start time to `1109138542`, and the duration to `4`
+# - Click the 'Spectrogram (GWpy)' plot option and select the
 #   'Generate Spectrogram' check-box in that section
 # - Fill in the parameters for a 0.1-second FFT with overlap of 0.95 (95%),
 #   and check the 'Normalize' check-box
@@ -59,4 +59,14 @@ plot.show()
 #
 # You should end up with something like this:
 #
-# .. image:: https://ldvw.ligo.caltech.edu/ldvw/view?act=getImg&imgId=65557
+# .. image:: https://ldvw.ligo.caltech.edu/ldvw/view?act=getImg&imgId=65560
+#    :width: 800px
+#    :alt: LDVW web example image
+#
+# Additionally, LDVW will tell you what command you can run on your own
+# to reproduce the plot on your own machine.
+# For this example, you should see something like:
+#
+# .. code-block:: bash
+#
+#    /usr/local/ldvw/bin/gwpy-plot spectrogram --chan 'L1:OAF-CAL_DARM_DQ' --start 1109138542 --duration 4 --out '/usr/local/tomcat_base/temp/ldvw7751788417578389337.png' --secpfft '0.100' --overlap '0.950' --epoch '1109138543.800' --fmin 80 --fmax 7000 --imin '0.500' --norm
