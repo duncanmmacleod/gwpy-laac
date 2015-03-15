@@ -39,3 +39,24 @@ plot.set_ylim(80, 8192)
 plot.add_colorbar(label='Amplitude relative to median')
 plot.set_title('L1 `whistle\' glitch')
 plot.show()
+
+# Using LDVW
+# ##########
+#
+# This example looks quite complicated, so why not use
+# `LDVW <//ldvw.ligo.caltech.edu>`_:
+#
+# - go to https://ldvw.ligo.caltech.edu
+# - enter `L1:OAF-CAL_DARM_DQ` in the 'Channel name filter' box
+# - select the 'Raw' check-box under the `L1:OAF-CAL_DARM_DQ` entry in
+#   the returned table, the press 'Continue'
+# - set the start time to `1109138540`, and the duration to `10`
+# - Click the 'Spectrogram' plot option and select the
+#   'Generate Spectrogram' check-box in that section
+# - Fill in the parameters for a 0.1-second FFT with overlap of 0.95 (95%),
+#   and check the 'Normalize' check-box
+# - Click 'Plot' at the bottom of the screen
+#
+# You should end up with something like this:
+#
+# .. image:: https://ldvw.ligo.caltech.edu/ldvw/view?act=getImg&imgId=65557
