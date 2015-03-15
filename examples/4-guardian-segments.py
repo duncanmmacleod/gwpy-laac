@@ -18,6 +18,8 @@ __currentmodule__ = 'gwpy.timeseries'
 # More simply put, each node can be in only one state at any given time,
 # and there are hand-defined conditions allowing transitions from one state
 # to another (but not any other).
+# For more details on the aLIGO Guardian system,
+# `click here <https://awiki.ligo-wa.caltech.edu/aLIGO/Guardian>`_.
 #
 # Now, for any node, the state record for that node is written to the frames
 # as `<ifo>:GRD-<node>_STATE_N`, e.g. `H1:GRD-ISC_LOCK_STATE_N` for the
@@ -34,6 +36,11 @@ lockstate = TimeSeries.fetch(
 # Now, our Jeff told us that the 'DC readout' state was defined as state
 # 500 in their locking guardian, so all we have to do is find those
 # segments when `lockstate` was equal to 500.
+#
+# .. note::
+#
+#    On March 14 2015, the DC readout state was redefined to index 501,
+#    with index 500 used for the transition to DC readout.
 #
 # First, we find the samples that are equal to 500:
 
