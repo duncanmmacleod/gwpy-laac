@@ -44,6 +44,10 @@ displacement = hp.zpk([100]*5, [1]*5, 1e-10/4000.)
 # Next we can calculate the `ASD <gwpy.timeseries.TimeSeries.asd>`:
 asd = displacement.asd(8, 4)
 
+# We can also calculate the inspiral sensitivity using the PSD:
+from gwpy.astro import inspiral_range
+bns = inspiral_range(asd**2)
+
 # Finally, we can make a plot, and prettify it with limits and labels:
 plot = asd.plot()
 ax = plot.gca()
@@ -51,5 +55,5 @@ ax.set_ylabel(r'GW sensitivity [strain/\rtHz]')
 ax.set_xlabel('Frequency [Hz]')
 ax.set_ylim(5e-24, 1e-19)
 ax.set_xlim(10, 4000)
-ax.set_title('L1 $h(t)$ spectrum')
+ax.set_title('L1 $h(t)$ spectrum [%.3g %s BNS range]' % (bns.value, bns.unit))
 plot.show()
