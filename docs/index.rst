@@ -26,6 +26,16 @@ To use that installation, just run from the shell:
 
 The GWpySoft installation includes bleeding-edge installations of `NumPy <https://numpy.org>`_, `SciPy <https://scipy.org>`_, `matplotlib <https://matplotlib.org>`_, and `Astropy <https://astropy.org>`_ that go (far) beyond what is normally available on the LIGO Data Grid, so don't be surprised if old code doesn't work completely when you move to using the GWpySoft stack.
 
+=================
+Getting the codes
+=================
+
+If you want to check out the sources codes for this tutorial, including the python files used to generate the examples, you can view the repository at https://github.com/duncanmmacleod/gwpy-laac, and you can `clone <http://git-scm.com/docs/git-clone>`_ the repository as follows:
+
+.. code-block:: bash
+
+   git clone https://github.com/duncanmmacleod/gwpy-laac
+
 ========
 Examples
 ========
