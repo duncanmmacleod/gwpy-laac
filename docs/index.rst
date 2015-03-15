@@ -1,6 +1,6 @@
-######################
-Practical Data-Quality
-######################
+#####################################
+Practical Data-Quality with GWpy/LDVW
+#####################################
 
 **Written for the LSC Academic Affairs Council Retreat, March 2015**
 
@@ -15,7 +15,7 @@ Contained in this tutorial are a small number of practical examples, meant to ex
 Setup
 =====
 
-First things first, installing GWpy. There are `decent instructions <//gwpy.github.io/docs/stables/install.html>`_ provided as part of the `GWpy documentation <//gwpy.github.io/docs/stable>`_.
+First things first, installing GWpy. There are `decent instructions <//gwpy.github.io/docs/stable/install.html>`_ provided as part of the `GWpy documentation <//gwpy.github.io/docs/stable>`_.
 
 Alternatively, if you are having serious problems installing GWpy and its dependencies on your own machine, or don't want to, you can use the shared installation available on the `LIGO Data Grid <//wiki.ligo.org/LDG/>`_ computing centres at CIT, LHO, and LLO.
 To use that installation, just run from the shell:
