@@ -7,16 +7,6 @@
 In this example we show how to de-whiten the L1 DARM channel to produce an
 ASD in GW strain units.
 
-.. note::
-
-   This example will only reliably work when using `scipy` >= 0.16, which
-   at the time of writing is only available by installing `scipy` directly
-   from its git repository:
-
-   .. code-block:: bash
-
-      pip install --user git+https://github.com/scipy/scipy
-
 """
 
 __author__ = "Duncan Macleod <duncan.macleod@ligo.org>"
@@ -34,22 +24,27 @@ white = TimeSeries.fetch(
 #    read the data directly from frames, see `here
 #    <//gwpy.github.io/docs/stable/timeseries/gwf.html>`_ for more details.
 
-# Now we can `de-whiten <gwpy.timeseries.TimeSeries.zpk>` the data using
-# the inverse of the whitening filter, after applying a
-# `~gwpy.timeseries.TimeSeries.highpass` filter to prevent low-frequency
-# noise from causing problems
-hp = white.highpass(4)
-displacement = hp.zpk([100]*5, [1]*5, 1e-10/4000.)
+# Next we can calculate the `ASD <gwpy.timeseries.TimeSeries.asd>` of the
+# whitened data:
+wasd = white.asd(8, 4)
 
-# Next we can calculate the `ASD <gwpy.timeseries.TimeSeries.asd>`:
-asd = displacement.asd(8, 4)
+# Now we can `de-whiten <gwpy.spectrum.Spectrum.zpk>` the ASD using
+# the inverse of the original whitening filter:
+dasd = wasd.zpk([100]*5, [1]*5, 1e-10/4000.)
+# giving us an ASD in strain units.
+#
+# .. note::
+#
+#    We have chosen to de-whiten in the frequency domain, rather than the
+#    the time domain, to prevent any problems with unstable filters.
+#    Only when using `scipy` >= 0.16 will time-domain filtering be reliable.
 
-# We can also calculate the inspiral sensitivity using the PSD:
+# Next, we can also calculate the inspiral sensitivity using the PSD:
 from gwpy.astro import inspiral_range
-bns = inspiral_range(asd**2)
+bns = inspiral_range(dasd**2)
 
 # Finally, we can make a plot, and prettify it with limits and labels:
-plot = asd.plot()
+plot = dasd.plot()
 ax = plot.gca()
 ax.set_ylabel(r'GW sensitivity [strain/\rtHz]')
 ax.set_xlabel('Frequency [Hz]')
